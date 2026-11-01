@@ -1,0 +1,7 @@
+# name,description,arrival,burst,priority
+init,Start system services,0,4,3
+sshd,Accept remote logins,1,3,2
+cron,Run scheduled jobs,1,2,4
+backup,Copy files to storage,2,6,5
+logrotate,Archive old logs,3,2,1
+indexer,Update the search index,22,3,2

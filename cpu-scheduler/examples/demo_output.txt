@@ -1,0 +1,86 @@
+══════════════════════════════════════════════
+>> Scheduler Mode : FCFS
+>> Engine Status  : Initialized
+──────────────────────────────────────────────
+
+0 → 4: init Running Start system services.
+4 → 7: sshd Running Accept remote logins.
+7 → 9: cron Running Run scheduled jobs.
+9 → 15: backup Running Copy files to storage.
+15 → 17: logrotate Running Archive old logs.
+17 → 22: Idle.
+22 → 25: indexer Running Update the search index.
+
+──────────────────────────────────────────────
+>> Engine Status  : Completed
+>> Summary        :
+   └─ Average Waiting Time : 4.67 time units
+>> End of Report
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+>> Scheduler Mode : SJF
+>> Engine Status  : Initialized
+──────────────────────────────────────────────
+
+0 → 4: init Running Start system services.
+4 → 6: cron Running Run scheduled jobs.
+6 → 8: logrotate Running Archive old logs.
+8 → 11: sshd Running Accept remote logins.
+11 → 17: backup Running Copy files to storage.
+17 → 22: Idle.
+22 → 25: indexer Running Update the search index.
+
+──────────────────────────────────────────────
+>> Engine Status  : Completed
+>> Summary        :
+   └─ Average Waiting Time : 3.67 time units
+>> End of Report
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+>> Scheduler Mode : Priority
+>> Engine Status  : Initialized
+──────────────────────────────────────────────
+
+0 → 4: init Running Start system services.
+4 → 6: logrotate Running Archive old logs.
+6 → 9: sshd Running Accept remote logins.
+9 → 11: cron Running Run scheduled jobs.
+11 → 17: backup Running Copy files to storage.
+17 → 22: Idle.
+22 → 25: indexer Running Update the search index.
+
+──────────────────────────────────────────────
+>> Engine Status  : Completed
+>> Summary        :
+   └─ Average Waiting Time : 3.83 time units
+>> End of Report
+══════════════════════════════════════════════
+
+══════════════════════════════════════════════
+>> Scheduler Mode : Round Robin
+>> Engine Status  : Initialized
+──────────────────────────────────────────────
+
+0 → 2: init Running Start system services.
+2 → 4: sshd Running Accept remote logins.
+4 → 6: cron Running Run scheduled jobs.
+6 → 8: backup Running Copy files to storage.
+8 → 10: init Running Start system services.
+10 → 12: logrotate Running Archive old logs.
+12 → 13: sshd Running Accept remote logins.
+13 → 15: backup Running Copy files to storage.
+15 → 17: backup Running Copy files to storage.
+17 → 22: Idle.
+22 → 24: indexer Running Update the search index.
+24 → 25: indexer Running Update the search index.
+
+──────────────────────────────────────────────
+>> Engine Status  : Completed
+>> Summary        :
+   └─ Total Turnaround Time : 25 time units
+
+>> End of Report
+══════════════════════════════════════════════
+
