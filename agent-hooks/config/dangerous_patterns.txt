@@ -1,0 +1,20 @@
+# One extended regular expression (grep -E) per line, checked against every line
+# of the command. A match blocks the command.
+
+# Recursive delete in any spelling: rm -rf, rm -fr, rm -r -f, /bin/rm -R, rm --recursive
+(^|[^[:alnum:]_.-])rm[[:space:]]+([^;&|]*[[:space:]])?(-[[:alpha:]]*[rR]|--recursive)
+
+# Throwing away work: hard resets and forced pushes
+(^|[^[:alnum:]_-])git[[:space:]].*reset[[:space:]]+(.*[[:space:]])?--hard
+(^|[^[:alnum:]_-])git[[:space:]].*push[[:space:]](.*[[:space:]])?(--force|-[[:alpha:]]*f[[:alpha:]]*([[:space:]]|$))
+
+# Writing to raw disks and creating file systems
+>[[:space:]]*/dev/(sd|hd|nvme|disk)
+(^|[^[:alnum:]_-])mkfs
+(^|[^[:alnum:]_-])dd[[:space:]].*of=/dev/
+
+# Fork bomb
+:\(\)[[:space:]]*\{.*\}[[:space:]]*;[[:space:]]*:
+
+# World-writable permissions
+(^|[^[:alnum:]_-])chmod[[:space:]]+(.*[[:space:]])?0?777

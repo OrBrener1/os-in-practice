@@ -1,0 +1,36 @@
+$ ls -la
+> Running: ./hooks/firewall.sh
+  Passed
+> Running: ./hooks/rate_limiter.sh
+  Passed
+> Running: ./hooks/commit_validator.sh
+  Passed
+exit 0
+
+$ echo "cleaning up" && rm -fr build
+> Running: ./hooks/firewall.sh
+  BLOCKED
+  BLOCKED: Recursive delete in any spelling: rm -rf, rm -fr, rm -r -f, /bin/rm -R, rm --recursive (pattern '(^|[^[:alnum:]_.-])rm[[:space:]]+([^;&|]*[[:space:]])?(-[[:alpha:]]*[rR]|--recursive)'). Use a safer alternative.
+  [chain stopped, the hook exited with 2]
+exit 2
+
+$ git commit -m "add the session summary"
+> Running: ./hooks/firewall.sh
+  Passed
+> Running: ./hooks/rate_limiter.sh
+  Passed
+> Running: ./hooks/commit_validator.sh
+  BLOCKED
+  BLOCKED: missing or unknown commit prefix. Based on the staged changes, try: 'feat: add the session summary'. Valid prefixes: feat, fix, docs, refactor, test, chore
+  [chain stopped, the hook exited with 2]
+exit 2
+
+$ git commit -m "feat: add the session summary"
+> Running: ./hooks/firewall.sh
+  Passed
+> Running: ./hooks/rate_limiter.sh
+  Passed
+> Running: ./hooks/commit_validator.sh
+  Passed
+exit 0
+

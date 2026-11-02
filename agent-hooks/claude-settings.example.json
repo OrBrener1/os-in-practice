@@ -1,0 +1,35 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/agent-hooks/hooks/firewall.sh" },
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/agent-hooks/hooks/rate_limiter.sh" },
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/agent-hooks/hooks/commit_validator.sh" }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/agent-hooks/hooks/auto_backup.sh" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/agent-hooks/hooks/syntax_checker.sh" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/agent-hooks/hooks/session_summary.sh" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+# event:matcher:script, run in this order. See hook_runner.sh.
+PreToolUse:Bash:./hooks/firewall.sh
+PreToolUse:Bash:./hooks/rate_limiter.sh
+PreToolUse:Bash:./hooks/commit_validator.sh
+PreToolUse:Edit|Write|MultiEdit:./hooks/auto_backup.sh
+PostToolUse:Edit|Write|MultiEdit:./hooks/syntax_checker.sh
+Stop:*:./hooks/session_summary.sh
