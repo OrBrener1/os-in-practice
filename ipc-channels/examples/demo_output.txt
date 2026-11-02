@@ -1,0 +1,4 @@
+[Channel: PIPE] count=100000 sum=4999950000 min=2 max=99997
+[Channel: FIFO] count=100000 sum=4999950000 min=2 max=99997
+[Channel: SHM-SLOT] count=100000 sum=4999950000 min=2 max=99997
+[Channel: SHM] count=100000 sum=4999950000 min=2 max=99997
