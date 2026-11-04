@@ -92,3 +92,5 @@ echo '{"tool_name":"Bash","tool_input":{"command":"rm -fr build"}}' | ./hook_run
 make demo
 make test
 ```
+
+The same checks run automatically on Linux and macOS on every push.

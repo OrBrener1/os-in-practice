@@ -6,6 +6,7 @@
 
 ![C](https://img.shields.io/badge/C-00599C?style=flat-square&logo=c&logoColor=white)
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+[![tests](https://img.shields.io/github/actions/workflow/status/OrBrener1/os-in-practice/tests.yml?branch=main&style=flat-square&label=tests)](https://github.com/OrBrener1/os-in-practice/actions/workflows/tests.yml)
 
 <br>
 
@@ -114,7 +115,7 @@ cd agent-hooks
 bash examples/demo.sh
 ```
 
-Every folder also has `make test`, with the full set of checks.
+Every folder also has `make test`, with the full set of checks. GitHub Actions runs all three suites on Linux and macOS on every push.
 
 <br>
 

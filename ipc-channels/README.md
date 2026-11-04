@@ -90,3 +90,5 @@ make
 ./channels compare 1000000 7
 make test
 ```
+
+The same checks run automatically on Linux and macOS on every push.

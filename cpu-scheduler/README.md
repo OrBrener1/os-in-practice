@@ -100,3 +100,5 @@ make test
 ```
 
 `make test` runs the demo and 20 more checks: bad input, the comparison numbers on a small case worked out by hand, and cleanup after Ctrl-C. The demo output is saved in `examples/demo_output.txt`.
+
+The same checks run automatically on Linux and macOS on every push.
