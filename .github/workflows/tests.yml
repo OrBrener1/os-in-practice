@@ -1,0 +1,28 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: ${{ matrix.project }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        project: [cpu-scheduler, ipc-channels, agent-hooks]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check tools
+        run: |
+          cc --version | head -1
+          bash --version | head -1
+          jq --version
+          python3 --version
+      - name: make test
+        working-directory: ${{ matrix.project }}
+        run: make test
